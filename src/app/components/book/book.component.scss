@@ -1,0 +1,52 @@
+.book {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin: 15px;
+  padding: 10px;
+}
+.bookHead {
+  display: flex;
+  width: 100%;
+  img {
+    width: 150px;
+    height: 212px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  div:nth-child(2) {
+    margin-left: 20px;
+    width: 100%;
+    p {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .booklike {
+      font-size: 29px;
+      cursor: pointer;
+      width: min-content;
+    }
+  }
+  div:nth-child(3) {
+    width: 140px;
+    button {
+      width: 100%;
+    }
+    button:nth-child(2) {
+      margin-top: 15px;
+    }
+  }
+}
+.bookDescription {
+  margin-top: 12px;
+  p {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .bookDescriptionText {
+    margin-top: 10px;
+    border: 1px solid black;
+    height: 180px;
+    padding: 10px;
+    overflow-y: auto;
+  }
+}

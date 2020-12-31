@@ -1,0 +1,27 @@
+<div class="book"  >
+  <div class="bookHead">
+    <img src="../assets/books/{{book.img}}.jpg">
+    <div>
+      <p>name: {{book.name}}</p>
+      <p>author: {{book.author}}</p>
+      <p>genre: {{book.genre}}</p>
+      <p>year: {{book.year}}</p>
+      <p class="booklike"
+        [ngStyle]="{color: book.like ? 'red' :'black'}"
+        (click)="like()"
+      >&hearts;</p>
+      <button (click)="descriptionShow()" class="btn btn-primary">Show description</button>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="edit()" *ngIf="admin">Edit</button>
+      <button class="btn btn-danger"  (click)="delete()" *ngIf="admin">Delete</button>
+    </div>
+  </div>
+  <div *ngIf="description" class="bookDescription">
+    <p>Download link: <a href="{{book.download_link}}">litmir.me</a></p>
+    <p>Buy link: <a href="{{book.buy_link}}">oz.by</a></p>
+     <div class="bookDescriptionText">
+       <p>{{book.text}}</p>
+     </div>
+  </div>
+</div>

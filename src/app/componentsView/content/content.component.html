@@ -1,0 +1,29 @@
+<div class="filters">
+  <div class="input-group mb-3 filters_name">
+    <input type="text" class="form-control" [(ngModel)]="searchValue" placeholder="Name or Genre">
+    <div class="input-group-append">
+      <button class="btn btn-danger" (click)="search()" type="button">Search</button>
+    </div>
+  </div>
+  <div class="form-group filters_genre">
+    <button *ngIf="accessAdmin" class="btn btn-danger" (click)="addBook()">Add Book</button>
+      <p> {{email}}</p>
+  </div>
+</div>
+<div class="listBooks">
+  <app-book
+    *ngFor="let item of booksSearch; let i = index"
+    [book] = "item" [idx] = "i"
+    [admin] = "accessAdmin"
+    [usual] = "accessUsual"
+    (onEdit) = "edit($event)"
+    (onBooksUpdate) = "mainCallBooks()"
+  >
+  </app-book>
+</div>
+<app-form-book
+  *ngIf="showForm"
+  [bookEdit] = "books[bookIndexEdit]"
+  (onClose)="closeForm($event)"
+></app-form-book>
+

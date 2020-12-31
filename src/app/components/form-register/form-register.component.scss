@@ -1,0 +1,54 @@
+.formSign {
+  position: fixed;
+  top: 130px;
+  border: 1px solid black;
+  width: 460px;
+  height: 360px;
+  padding: 20px;
+  margin: auto;
+  left: 0%;
+  right: 0%;
+}
+.formSwitch {
+  button {
+    width: 100px;
+    background-color: #4f4a5b;
+    box-shadow: none;
+  }
+  button:nth-child(1) {
+    border-radius: 15px 0px 0px 15px;
+    border-right: 1px solid black;
+  }
+  button:nth-child(2) {
+    border-radius: 0px 15px 15px 0px;
+    border-left: 1px solid black;
+  }
+  .red {
+    background-color: red;
+  }
+  .grey {
+    background-color: #4f4a5b;
+  }
+}
+form {
+  input {
+    &.ng-invalid.ng-touched {
+      border: 1px solid red;
+    }
+    &.ng-valid.ng-touched {
+      border: 1px solid green;
+    }
+  }
+}
+
+.formButtons {
+  margin-top: 10px;
+  button:nth-child(2) {
+    margin-left: 10px;
+  }
+}
+.validationErrors {
+  height: 20px;
+  color: red;
+  font-size: 18px;
+}

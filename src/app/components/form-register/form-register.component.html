@@ -1,0 +1,48 @@
+<div class="formSign">
+  <div class="form-group formSwitch">
+    <button class="btn btn-success"
+            routerLinkActive="active" routerLink="/register"
+            (click)="changeForm(true)"
+            [ngClass]=
+              "{red: kindForm,
+            grey: !kindForm}"
+    >Register</button>
+    <button class="btn btn-success"
+            routerLinkActive="active" routerLink="/enter"
+            (click)="changeForm(false)"
+            [ngClass]=
+              "{red: !kindForm,
+            grey: kindForm}"
+    >Enter</button>
+  </div>
+  <form class="form" [formGroup] = "form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input (blur)="focus()" formControlName="email" id = 'email' class="form-control" placeholder="Enter email">
+      <div class="validationErrors">
+        <span *ngIf="stateForm.email.required && stateForm.emailTouched">
+         input email cannot be empty
+        </span>
+        <span *ngIf="stateForm.email.email && stateForm.emailTouched">
+         enter correct email address
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input (blur)="focus()" formControlName="password" id = 'password' type="password" class="form-control" placeholder="Password">
+      <div class="validationErrors">
+        <span *ngIf="stateForm.password.required && stateForm.passwordTouched">
+         input password cannot be empty
+        </span>
+        <span *ngIf="stateForm.password.minlength && stateForm.passwordTouched">
+         minimum 6 characters
+        </span>
+      </div>
+    </div>
+    <div class="formButtons">
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Submit</button>
+      <button routerLinkActive="active" routerLink="/" class="btn btn-danger">Cancel</button>
+    </div>
+  </form>
+</div>
